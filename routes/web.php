@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
+Route::get('/form', 'PageController@form');
+Route::get('/payments', 'PageController@payments');
+Route::get('/buy', 'PageController@buy');
+Route::post('/charge', 'StripeController@charge');
+Route::post('/save', 'StripeController@save');
+
+
+Auth::routes();
